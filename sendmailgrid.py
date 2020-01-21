@@ -7,12 +7,12 @@ import shutil
 
 f = open("link.txt", "r")
 data=f.read()
-
+html='<strong>Build is finished, check the following link</strong> '
 message = Mail(
     from_email=os.environ.get('FROM_EMAIL'),
     to_emails=os.environ.get('TO_EMAILS'),
     subject=os.environ.get('SUBJECT'),
-    html_content='<strong>Build is finished, check the following link</strong> '+ 'data')
+    html_content= html+data)
 
 
 #shutil.make_archive('app', 'zip', os.environ.get('ATTACHMENT'))
