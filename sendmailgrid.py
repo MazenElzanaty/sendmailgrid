@@ -9,7 +9,7 @@ message = Mail(
     from_email=os.environ.get('FROM_EMAIL'),
     to_emails=os.environ.get('TO_EMAILS'),
     subject=os.environ.get('SUBJECT'),
-    html_content='<strong>and easy to do anywhere, even with Python</strong>')
+    html_content='<strong>Build is finished, check attached</strong>')
 
 
 shutil.make_archive('app', 'zip', os.environ.get('ATTACHMENT'))
