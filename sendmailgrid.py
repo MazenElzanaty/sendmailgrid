@@ -12,16 +12,16 @@ message = Mail(
     html_content='<strong>Build is finished, check attached</strong>')
 
 
-shutil.make_archive('app', 'zip', os.environ.get('ATTACHMENT'))
-with open('app.zip', 'rb') as f:
+shutil.make_archive('app', 'tar', os.environ.get('ATTACHMENT'))
+with open('app.tar', 'rb') as f:
     data = f.read()
     f.close()
 encoded_file = base64.b64encode(data).decode()
 
 attachedFile = Attachment(
     FileContent(encoded_file),
-    FileName('app.zip'),
-    FileType('application/zip'),
+    FileName('app.tar'),
+    FileType('application/tar'),
     Disposition('attachment')
 )
 message.attachment = attachedFile
